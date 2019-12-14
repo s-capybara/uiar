@@ -22,7 +22,7 @@ If `--check-formatted` option is given, it doesn't modify files but raises an er
 ```elixir
 def deps do
   [
-    {:uiar, github: "s-capybara/uiar", tag: "develop", runtime: false, only: [:dev]}
+    {:uiar, "~> 0.1.0", runtime: false, only: [:dev]}
   ]
 end
 ```
