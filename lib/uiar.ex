@@ -1,18 +1,14 @@
 defmodule Uiar do
-  @moduledoc """
-  Documentation for Uiar.
-  """
+  @moduledoc false
 
-  @doc """
-  Hello world.
+  alias Uiar.Error
 
-  ## Examples
-
-      iex> Uiar.hello()
-      :world
-
-  """
-  def hello do
-    :world
+  @doc false
+  @spec format(String.t()) :: {:ok, String.t()} | {:error, [Error.t()]}
+  def format(source) do
+    with {:ok, source} <- Uiar.Group.format(source),
+         {:ok, source} <- Uiar.Nest.format(source) do
+      {:ok, source}
+    end
   end
 end
